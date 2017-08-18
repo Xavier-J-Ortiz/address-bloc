@@ -3,10 +3,17 @@ require "csv"
 require 'bloc_record/base'
 
 class AddressBook < BlocRecord::Base
-  attr_reader :entries
 
   def add_entry(name, phone_number, email)
     entries.insert(index, Entry.new(name, phone_number, email))
+  end
+
+  def entries
+    Entry.where(address_book_id: self.id)
+  end
+
+  def entries
+    Entry.where(address_book_id: self.id)
   end
 
   def import_from_csv(file_name)
