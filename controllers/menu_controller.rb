@@ -152,7 +152,7 @@ match = @address_book.find_entry(name)
   end
 
   def delete_entry(entry)
-    address_book.entries.delete(entry)
+	  entry.destroy
     puts "#{entry.name} has been deleted"
   end
 
